@@ -56,7 +56,9 @@
      <Compile Include="Assets\Script\FrameWork\Singleton.cs" />
      <Compile Include="Assets\Script\FrameWork\SingletonData.cs" />
      <Compile Include="Assets\Script\FrameWork\Test.cs" />
+     <Compile Include="Assets\Script\Game\GameInit.cs" />
      <Compile Include="Assets\Script\Load\ReleaseLoading.cs" />
+     <Compile Include="Assets\Script\Load\SceneManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/ProgramWorkSpace/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
