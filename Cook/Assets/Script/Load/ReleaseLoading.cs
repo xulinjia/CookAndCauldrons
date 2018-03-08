@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class ReleaseLoading : MonoBehaviour
 {
     public Slider slider;
+    public Text txtLab;
     float sum;
     float value;
     bool isLoadMain = false;
@@ -15,6 +16,7 @@ public class ReleaseLoading : MonoBehaviour
         sum += Time.deltaTime;
         value = Mathf.Lerp(0, 1, sum/5);
         slider.value = value;
+        txtLab.text = Mathf.CeilToInt(value * 100) + "%";
         if(sum > 5 && !isLoadMain)
         {
             isLoadMain = true;
