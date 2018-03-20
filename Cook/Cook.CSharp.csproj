@@ -302,7 +302,13 @@
     <Compile Include="Assets\Script\Game\GameInit.cs" />
     <Compile Include="Assets\Script\Load\ReleaseLoading.cs" />
     <Compile Include="Assets\Script\Load\SceneManager.cs" />
-    <Compile Include="Assets\Script\Main\WheelRoll.cs" />
+    <Compile Include="Assets\Script\Main\Box\Box.cs" />
+    <Compile Include="Assets\Script\Main\Box\CubeBox.cs" />
+    <Compile Include="Assets\Script\Main\Box\Spawner.cs" />
+    <Compile Include="Assets\Script\Main\Observer.cs" />
+    <Compile Include="Assets\Script\Main\RoadCreater.cs" />
+    <Compile Include="Assets\Script\Main\RollTarget.cs" />
+    <Compile Include="Assets\Script\Main\Subject.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
