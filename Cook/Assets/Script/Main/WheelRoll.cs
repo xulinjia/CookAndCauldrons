@@ -17,7 +17,6 @@ public class WheelRoll : MonoBehaviour {
 	void Update ()
     {
         road.transform.Translate(Vector3.left * speed);
-        //road.transform.localPosition = new Vector3(road.transform.localPosition.x - 0.1f, road.transform.localPosition.y, road.transform.localPosition.z);
         Debug.Log(Vector3.left * speed);
 	}
 }
