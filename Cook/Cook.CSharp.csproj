@@ -304,9 +304,10 @@
     <Compile Include="Assets\Script\Load\SceneManager.cs" />
     <Compile Include="Assets\Script\Main\Box\Box.cs" />
     <Compile Include="Assets\Script\Main\Box\CubeBox.cs" />
+    <Compile Include="Assets\Script\Main\Box\RoadBox.cs" />
     <Compile Include="Assets\Script\Main\Box\Spawner.cs" />
     <Compile Include="Assets\Script\Main\Observer.cs" />
-    <Compile Include="Assets\Script\Main\RoadCreater.cs" />
+    <Compile Include="Assets\Script\Main\RoadObserver.cs" />
     <Compile Include="Assets\Script\Main\RollTarget.cs" />
     <Compile Include="Assets\Script\Main\Subject.cs" />
   </ItemGroup>

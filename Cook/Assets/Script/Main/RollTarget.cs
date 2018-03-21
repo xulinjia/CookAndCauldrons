@@ -6,13 +6,16 @@ public class RollTarget : Subject
 {
 
     public float speed = 0.1f;
-    GameObject road;
+    public RoadObserver roadObserver;
+    GameObject roll;
     void Start()
     {
-        road = this.gameObject;
+        roll = this.gameObject;
+        AddObserver(roadObserver);
     }
 	void Update ()
     {
-        road.transform.Translate(Vector3.back * speed);
+        roll.transform.Translate(Vector3.back * speed);
+        Notify(new Event(roadObserver.transform.localPosition.x, roadObserver.transform.localPosition.y, roadObserver.transform.localPosition.z));
 	}
 }
