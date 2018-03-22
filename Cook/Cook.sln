@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2015
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cook.CSharp", "Cook.CSharp.csproj", "{291A4249-C77F-60BD-10DE-95986DA256F1}"
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cook", "Cook.csproj", "{2D5D992F-85D2-AF1F-F369-3A0F9064A850}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{291A4249-C77F-60BD-10DE-95986DA256F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{291A4249-C77F-60BD-10DE-95986DA256F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{291A4249-C77F-60BD-10DE-95986DA256F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{291A4249-C77F-60BD-10DE-95986DA256F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D5D992F-85D2-AF1F-F369-3A0F9064A850}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D5D992F-85D2-AF1F-F369-3A0F9064A850}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D5D992F-85D2-AF1F-F369-3A0F9064A850}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D5D992F-85D2-AF1F-F369-3A0F9064A850}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
