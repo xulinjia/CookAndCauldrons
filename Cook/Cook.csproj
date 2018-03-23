@@ -299,9 +299,12 @@
     <Compile Include="Assets\Script\FrameWork\Singleton.cs" />
     <Compile Include="Assets\Script\FrameWork\SingletonData.cs" />
     <Compile Include="Assets\Script\FrameWork\Test.cs" />
+    <Compile Include="Assets\Script\FrameWork\UI\BaseModel.cs" />
+    <Compile Include="Assets\Script\FrameWork\UI\EventManager.cs" />
+    <Compile Include="Assets\Script\FrameWork\UI\MessageData.cs" />
     <Compile Include="Assets\Script\FrameWork\UI\ModelUIControl.cs" />
-    <Compile Include="Assets\Script\FrameWork\UI\UIPanel.cs" />
     <Compile Include="Assets\Script\FrameWork\UI\UIStackManager.cs" />
+    <Compile Include="Assets\Script\FrameWork\UI\UIView.cs" />
     <Compile Include="Assets\Script\Game\GameInit.cs" />
     <Compile Include="Assets\Script\Load\ReleaseLoading.cs" />
     <Compile Include="Assets\Script\Load\SceneManager.cs" />

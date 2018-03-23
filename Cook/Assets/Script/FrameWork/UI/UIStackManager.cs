@@ -12,19 +12,44 @@ public class UIStackManager : Singleton<UIStackManager>
         ctr.Load();
     }
 
-    public void PushModelUI(ModelUIControl mc,bool killPre = true)
+    public void PushModelUI(ModelUIControl mc, UILayer layer = UILayer.Base)
     {
-        if (killPre)
-        {
-            ModelUIControl ctr = modelStack.Pop();
-            ctr.UnLoad();
-        }
+        ModelUIControl ctr = modelStack.Pop();
+        ctr.UnLoad();
         modelStack.Push(mc);
         mc.Load();
     }
 
-    public void Pop()
+    public void Pop(RemoveEnum type)
     {
-        modelStack.Pop();
+        switch (type)
+        {
+            case RemoveEnum.ABSOLUTE:
+                {
+                    ModelUIControl ctr = modelStack.Pop();
+                    ctr.UnLoad();
+                }
+                break;
+            case RemoveEnum.HIDE:
+                {
+                    ModelUIControl ctr = modelStack.Peek();
+                    ctr.UnLoad();
+                }
+                break;
+            case RemoveEnum.STAGNATE:
+                {
+                    ModelUIControl ctr = modelStack.Peek();
+                    ctr.Hide();
+                }
+                break;
+        }
     }
+
+}
+
+public enum RemoveEnum
+{
+    ABSOLUTE,
+    HIDE,
+    STAGNATE
 }

@@ -4,12 +4,18 @@ using UnityEngine;
 
 public abstract class ModelUIControl
 {
-    List<UIPanel> PanelList = new List<UIPanel>();
+    List<UIView> PanelList = new List<UIView>();
+    BaseModel model;
+    public ModelUIControl(BaseModel data)
+    {
+        model = data;
+    }
 
     /// <summary>
     /// Add UIPanel Paths
     /// </summary>
     /// <returns></returns>
+    /// 
     public abstract List<string> AddPanelList();
 
     public void LoadPanel(string path)
@@ -18,16 +24,16 @@ public abstract class ModelUIControl
         if(Obj == null)
             Debug.Log("Can't Load panel by Path:" + path);
         GameObject obj = MonoBehaviour.Instantiate(Obj) as GameObject;
-        UIPanel panel = obj.GetComponent<UIPanel>();
+        UIView panel = obj.GetComponent<UIView>();
         if (panel == null)
             Debug.Log("Can't Get UIPanel by Path:" + path);
         panel.gameObject.SetActive(false);
         PanelList.Add(panel);
     }
 
-    public T GetPanel<T>() where T :UIPanel
+    public T GetPanel<T>() where T :UIView
     {
-       foreach (UIPanel panel in PanelList)
+       foreach (UIView panel in PanelList)
         {
             if(panel is T)
             {
@@ -50,6 +56,11 @@ public abstract class ModelUIControl
     {
 
     }
+
+    public void Hide()
+    {
+
+    }
 }
 
 public enum ModelUIContrilEnum
@@ -57,3 +68,10 @@ public enum ModelUIContrilEnum
     LoadUI,
     MainUI,
 }
+
+public enum UILayer
+{
+    Base,
+    PoP,
+}
+

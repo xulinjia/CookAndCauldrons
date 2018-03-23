@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIPanel : MonoBehaviour
+public class UIView : MonoBehaviour
 {
     public virtual void PreOpen()
     {
