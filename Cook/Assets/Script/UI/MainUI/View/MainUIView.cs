@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MainUI : MonoBehaviour
+public class MainUIView : UIView
 {
+
 }

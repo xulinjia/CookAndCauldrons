@@ -2,42 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ModelUIControl
+public abstract class ModelUIControl:Singleton<ModelUIControl>
 {
-    List<UIView> PanelList = new List<UIView>();
+    List<UIView> ViewList = new List<UIView>();
     BaseModel model;
-    public ModelUIControl(BaseModel data)
-    {
-        model = data;
-    }
 
-    /// <summary>
-    /// Add UIPanel Paths
-    /// </summary>
-    /// <returns></returns>
-    /// 
-    public abstract List<string> AddPanelList();
+    public abstract List<string> AddViewList();
+    public abstract BaseModel AddModelData();
 
-    public void LoadPanel(string path)
+    public void LoadView(string path)
     {
         GameObject Obj = Resources.Load(path) as GameObject;
         if(Obj == null)
-            Debug.Log("Can't Load panel by Path:" + path);
+            Debug.Log("Can't Load view by Path:" + path);
         GameObject obj = MonoBehaviour.Instantiate(Obj) as GameObject;
-        UIView panel = obj.GetComponent<UIView>();
-        if (panel == null)
-            Debug.Log("Can't Get UIPanel by Path:" + path);
-        panel.gameObject.SetActive(false);
-        PanelList.Add(panel);
+        UIView view = obj.GetComponent<UIView>();
+        if (view == null)
+            Debug.Log("Can't Get UIView by Path:" + path);
+        view.gameObject.SetActive(false);
+        view.Load(this);
+        ViewList.Add(view);
     }
 
-    public T GetPanel<T>() where T :UIView
+    public T GetView<T>() where T :UIView
     {
-       foreach (UIView panel in PanelList)
+       foreach (UIView view in ViewList)
         {
-            if(panel is T)
+            if(view is T)
             {
-                return panel as T;
+                return view as T;
             }
         }
         return null;
@@ -45,19 +38,29 @@ public abstract class ModelUIControl
 
     public void Load()
     {
-        List<string> lists = AddPanelList();
+        model = AddModelData();
+        List<string> lists = AddViewList();
         foreach (string str in lists)
         {
-            LoadPanel(str);
+            LoadView(str);
         }
     }
 
     public void UnLoad()
     {
-
+        model.Unload();
+        foreach (UIView view in ViewList)
+        {
+            view.UnLoad();
+        }       
     }
 
     public void Hide()
+    {
+
+    }
+
+    public void Show()
     {
 
     }

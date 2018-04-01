@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class UIView : MonoBehaviour
 {
+    protected ModelUIControl ctr;
+
+    public void Load(ModelUIControl ctr)
+    {
+        this.ctr = ctr;
+    }
     public virtual void PreOpen()
     {
 
@@ -36,5 +42,10 @@ public class UIView : MonoBehaviour
         PreClose();
         gameObject.SetActive(false);
         Closed();
+    }
+
+    public virtual void UnLoad()
+    {
+
     }
 }

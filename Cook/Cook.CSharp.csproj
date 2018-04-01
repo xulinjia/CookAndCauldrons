@@ -299,6 +299,13 @@
     <Compile Include="Assets\Script\FrameWork\Singleton.cs" />
     <Compile Include="Assets\Script\FrameWork\SingletonData.cs" />
     <Compile Include="Assets\Script\FrameWork\Test.cs" />
+    <Compile Include="Assets\Script\FrameWork\UI\BaseModel.cs" />
+    <Compile Include="Assets\Script\FrameWork\UI\CanvasRoot.cs" />
+    <Compile Include="Assets\Script\FrameWork\UI\EventManager.cs" />
+    <Compile Include="Assets\Script\FrameWork\UI\MessageData.cs" />
+    <Compile Include="Assets\Script\FrameWork\UI\ModelUIControl.cs" />
+    <Compile Include="Assets\Script\FrameWork\UI\UIControlStackManager.cs" />
+    <Compile Include="Assets\Script\FrameWork\UI\UIView.cs" />
     <Compile Include="Assets\Script\Game\GameInit.cs" />
     <Compile Include="Assets\Script\Load\ReleaseLoading.cs" />
     <Compile Include="Assets\Script\Load\SceneManager.cs" />
@@ -310,6 +317,9 @@
     <Compile Include="Assets\Script\Main\RoadObserver.cs" />
     <Compile Include="Assets\Script\Main\RollTarget.cs" />
     <Compile Include="Assets\Script\Main\Subject.cs" />
+    <Compile Include="Assets\Script\UI\MainUI\MainUIControl.cs" />
+    <Compile Include="Assets\Script\UI\MainUI\MainUIModel.cs" />
+    <Compile Include="Assets\Script\UI\MainUI\View\MainUIView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

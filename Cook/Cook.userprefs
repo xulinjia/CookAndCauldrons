@@ -1,4 +1,4 @@
-﻿<Properties StartupItem="Cook.csproj">
+﻿<Properties StartupItem="Cook.CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
