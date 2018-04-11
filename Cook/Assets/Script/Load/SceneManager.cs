@@ -26,6 +26,15 @@ public class SceneManager : Singleton<SceneManager>
             }
         }
     }
+
+    public SceneData Peek()
+    {
+        if(sceneStack.Count == 0)
+        {
+            return null;
+        }
+        return sceneStack.Peek();
+    }
 }
 
 public enum SceneE

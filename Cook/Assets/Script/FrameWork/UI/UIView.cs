@@ -34,6 +34,7 @@ public class UIView : MonoBehaviour
     {
         PreOpen();
         gameObject.SetActive(true);
+        transform.SetAsFirstSibling();
         Opend();
     }
 
@@ -41,6 +42,7 @@ public class UIView : MonoBehaviour
     {
         PreClose();
         gameObject.SetActive(false);
+        transform.SetAsLastSibling();
         Closed();
     }
 

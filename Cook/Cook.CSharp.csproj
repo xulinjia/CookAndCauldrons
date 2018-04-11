@@ -317,6 +317,9 @@
     <Compile Include="Assets\Script\Main\RoadObserver.cs" />
     <Compile Include="Assets\Script\Main\RollTarget.cs" />
     <Compile Include="Assets\Script\Main\Subject.cs" />
+    <Compile Include="Assets\Script\UI\LoadingUI\LoadingControl.cs" />
+    <Compile Include="Assets\Script\UI\LoadingUI\LoadingModel.cs" />
+    <Compile Include="Assets\Script\UI\LoadingUI\View\LoadingView.cs" />
     <Compile Include="Assets\Script\UI\MainUI\MainUIControl.cs" />
     <Compile Include="Assets\Script\UI\MainUI\MainUIModel.cs" />
     <Compile Include="Assets\Script\UI\MainUI\View\MainUIView.cs" />

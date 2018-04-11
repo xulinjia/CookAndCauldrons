@@ -7,33 +7,27 @@ public class Test : MonoBehaviour
 
     void Start()
     {
-
+        TimeClockManager.I.AttachClock(0.5f, GetCurrentScence, 100);
 
     }
     int code;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Debug.Log("A " + Time.realtimeSinceStartup);
-            code = TimeClockManager.I.AttachClock(2, Excute, 10);
-        }
 
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            Debug.Log("C " + Time.realtimeSinceStartup);
-            code = TimeClockManager.I.AttachTargetTimeClock(System.DateTime.Now.AddSeconds(5f), Excute);
-        }
-
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            Debug.Log("B " + Time.realtimeSinceStartup);
-            TimeClockManager.I.RemoveClock(code);
-        }
     }
 
-    void Excute()
+    void GetCurrentScence()
     {
-        Debug.Log(Time.realtimeSinceStartup + "--Excute");
+        UnityEngine.SceneManagement.Scene scene = UnityEngine.SceneManagement.SceneManager.GetSceneByName(SceneManager.I.Peek().sceneE.ToString());
+        if (scene != null)
+        {
+            GameObject[] rootObjs = scene.GetRootGameObjects();
+            string str = scene.name + ":";
+            foreach (GameObject obj in rootObjs)
+            {
+                str = str + obj.name + "--";
+            }
+            Debug.Log(str);
+        }
     }
 }

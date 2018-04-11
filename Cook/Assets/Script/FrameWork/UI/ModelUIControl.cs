@@ -6,11 +6,12 @@ public abstract class ModelUIControl:Singleton<ModelUIControl>
 {
     List<UIView> ViewList = new List<UIView>();
     BaseModel model;
+    public GameObject viewControl;
 
     public abstract List<string> AddViewList();
     public abstract BaseModel AddModelData();
 
-    public void LoadView(string path)
+    void LoadView(string path)
     {
         GameObject Obj = Resources.Load(path) as GameObject;
         if(Obj == null)
@@ -21,6 +22,7 @@ public abstract class ModelUIControl:Singleton<ModelUIControl>
             Debug.Log("Can't Get UIView by Path:" + path);
         view.gameObject.SetActive(false);
         view.Load(this);
+        view.gameObject.transform.parent = viewControl.transform;
         ViewList.Add(view);
     }
 
@@ -40,9 +42,20 @@ public abstract class ModelUIControl:Singleton<ModelUIControl>
     {
         model = AddModelData();
         List<string> lists = AddViewList();
+        if (viewControl == null)
+        {
+            viewControl = new GameObject();
+        }
+        viewControl.transform.parent = CanvasRoot.I.gameObject.transform;
+        viewControl.name = this.name;
         foreach (string str in lists)
         {
             LoadView(str);
+        }
+
+        if(ViewList.Count > 0)
+        {
+            ViewList[0].Open();
         }
     }
 
@@ -55,14 +68,9 @@ public abstract class ModelUIControl:Singleton<ModelUIControl>
         }       
     }
 
-    public void Hide()
+    protected BaseModel GetModel()
     {
-
-    }
-
-    public void Show()
-    {
-
+        return model;
     }
 }
 

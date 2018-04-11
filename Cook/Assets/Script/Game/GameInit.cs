@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameInit : SingletonData<GameInit>
+public class GameInit : Singleton<GameInit>
 {
     void Start()
     {
