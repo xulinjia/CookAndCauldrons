@@ -296,6 +296,8 @@
   <ItemGroup>
     <Compile Include="Assets\Script\FrameWork\Manager\TimeClockManager.cs" />
     <Compile Include="Assets\Script\FrameWork\Manager\TimeManager.cs" />
+    <Compile Include="Assets\Script\FrameWork\Scene\SceneManager.cs" />
+    <Compile Include="Assets\Script\FrameWork\Scene\SceneStart.cs" />
     <Compile Include="Assets\Script\FrameWork\Singleton.cs" />
     <Compile Include="Assets\Script\FrameWork\SingletonData.cs" />
     <Compile Include="Assets\Script\FrameWork\Test.cs" />
@@ -303,12 +305,12 @@
     <Compile Include="Assets\Script\FrameWork\UI\CanvasRoot.cs" />
     <Compile Include="Assets\Script\FrameWork\UI\EventManager.cs" />
     <Compile Include="Assets\Script\FrameWork\UI\MessageData.cs" />
+    <Compile Include="Assets\Script\FrameWork\UI\ModelManager.cs" />
     <Compile Include="Assets\Script\FrameWork\UI\ModelUIControl.cs" />
     <Compile Include="Assets\Script\FrameWork\UI\UIControlStackManager.cs" />
     <Compile Include="Assets\Script\FrameWork\UI\UIView.cs" />
     <Compile Include="Assets\Script\Game\GameInit.cs" />
     <Compile Include="Assets\Script\Load\ReleaseLoading.cs" />
-    <Compile Include="Assets\Script\Load\SceneManager.cs" />
     <Compile Include="Assets\Script\Main\Box\Box.cs" />
     <Compile Include="Assets\Script\Main\Box\CubeBox.cs" />
     <Compile Include="Assets\Script\Main\Box\RoadBox.cs" />
@@ -317,6 +319,8 @@
     <Compile Include="Assets\Script\Main\RoadObserver.cs" />
     <Compile Include="Assets\Script\Main\RollTarget.cs" />
     <Compile Include="Assets\Script\Main\Subject.cs" />
+    <Compile Include="Assets\Script\ScenceStart\LoadSceneStart.cs" />
+    <Compile Include="Assets\Script\ScenceStart\MainSceneStart.cs" />
     <Compile Include="Assets\Script\UI\LoadingUI\LoadingControl.cs" />
     <Compile Include="Assets\Script\UI\LoadingUI\LoadingModel.cs" />
     <Compile Include="Assets\Script\UI\LoadingUI\View\LoadingView.cs" />

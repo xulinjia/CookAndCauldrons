@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class MainUIControl : ModelUIControl
 {
-    public override BaseModel AddModelData()
+    public override Type AddModelDataType()
     {
-        return MainUIModel.I;
+        return typeof(MainUIModel);
     }
 
     public override List<string> AddViewList()

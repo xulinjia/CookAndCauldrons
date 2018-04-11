@@ -9,7 +9,7 @@ public class SceneManager : Singleton<SceneManager>
     {
         SceneData data = new SceneData();
         data.sceneE = e;
-        if(sceneStack.Count == 0)
+        if (sceneStack.Count == 0)
         {
             UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(e.ToString(), UnityEngine.SceneManagement.LoadSceneMode.Additive);
             sceneStack.Push(data);
@@ -25,7 +25,22 @@ public class SceneManager : Singleton<SceneManager>
                 UnityEngine.SceneManagement.SceneManager.LoadSceneAsync(e.ToString(), UnityEngine.SceneManagement.LoadSceneMode.Additive);
             }
         }
+        UnityEngine.SceneManagement.Scene scene = UnityEngine.SceneManagement.SceneManager.GetSceneByName(Peek().sceneE.ToString());
+        if (scene != null)
+        {
+            GameObject[] rootObjs = scene.GetRootGameObjects();
+            foreach (GameObject obj in rootObjs)
+            {
+                SceneStart start = obj.GetComponent<SceneStart>();
+                if (start != null)
+                {
+                    start.StartScence();
+                    break;
+                }
+            }
+        }
     }
+
 
     public SceneData Peek()
     {

@@ -1,15 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ModelUIControl:Singleton<ModelUIControl>
+public abstract class ModelUIControl
 {
     List<UIView> ViewList = new List<UIView>();
     BaseModel model;
+    ModelManager modelManager;
     public GameObject viewControl;
 
     public abstract List<string> AddViewList();
-    public abstract BaseModel AddModelData();
+    public abstract Type AddModelDataType();
 
     void LoadView(string path)
     {
@@ -23,6 +25,9 @@ public abstract class ModelUIControl:Singleton<ModelUIControl>
         view.gameObject.SetActive(false);
         view.Load(this);
         view.gameObject.transform.parent = viewControl.transform;
+        view.gameObject.transform.localPosition = Vector3.zero;
+        view.gameObject.transform.localScale = Vector3.one;
+        view.gameObject.transform.localRotation = Quaternion.identity;
         ViewList.Add(view);
     }
 
@@ -40,20 +45,47 @@ public abstract class ModelUIControl:Singleton<ModelUIControl>
 
     public void Load()
     {
-        model = AddModelData();
+        ModelManager.I.SetModelData(AddModelDataType());
+        model = ModelManager.I.GetModelData(AddModelDataType());
+        modelManager = ModelManager.I;
         List<string> lists = AddViewList();
         if (viewControl == null)
         {
             viewControl = new GameObject();
+            RectTransform trans = viewControl.AddComponent<RectTransform>();
+            trans.anchorMin = Vector2.zero;
+            trans.anchorMax = Vector3.one;
+            trans.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Screen.height);
+            trans.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, Screen.width);
         }
         viewControl.transform.parent = CanvasRoot.I.gameObject.transform;
-        viewControl.name = this.name;
+        viewControl.transform.localPosition = Vector3.zero;
+        viewControl.transform.localScale = Vector3.one;
+        viewControl.transform.localRotation = Quaternion.identity;
+        viewControl.name = this.GetType().Name;
         foreach (string str in lists)
         {
             LoadView(str);
         }
+        Show();
+    }
 
-        if(ViewList.Count > 0)
+    protected BaseModel GetModel()
+    {
+        return model;
+    }
+
+    public void Hide()
+    {
+        for(int i = 0; i < ViewList.Count; i++)
+        {
+            ViewList[i].Hide();
+        }
+    }
+
+    public void Show()
+    {
+        if (ViewList.Count > 0)
         {
             ViewList[0].Open();
         }
@@ -65,12 +97,8 @@ public abstract class ModelUIControl:Singleton<ModelUIControl>
         foreach (UIView view in ViewList)
         {
             view.UnLoad();
-        }       
-    }
-
-    protected BaseModel GetModel()
-    {
-        return model;
+        }
+        MonoBehaviour.DestroyImmediate(viewControl);
     }
 }
 

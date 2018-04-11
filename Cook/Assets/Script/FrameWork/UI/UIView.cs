@@ -46,6 +46,11 @@ public class UIView : MonoBehaviour
         Closed();
     }
 
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+    }
+
     public virtual void UnLoad()
     {
 

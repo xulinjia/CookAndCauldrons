@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Reflection;
 
-public class SingletonData<T> where T : new()
+public abstract class SingletonData<T> where T : new()
 {
     static T instance;
     public static T I

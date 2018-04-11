@@ -30,4 +30,10 @@ public class Test : MonoBehaviour
             Debug.Log(str);
         }
     }
+
+    [ContextMenu("HAHHA")]
+    public void TS()
+    {
+        RectTransform trans = GetComponent<RectTransform>();
+    }
 }

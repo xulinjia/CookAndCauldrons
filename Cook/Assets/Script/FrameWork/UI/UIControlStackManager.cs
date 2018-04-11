@@ -6,14 +6,12 @@ public class UIControlStackManager : Singleton<UIControlStackManager>
 {
     Stack<ModelUIControl> modelStack = new Stack<ModelUIControl>();
 
-    public void Push(ModelUIControl mc, UILayer layer = UILayer.Base)
+    public T Push<T>(UILayer layer = UILayer.Base) where T : ModelUIControl, new()
     {
-        if (modelStack.Count != 0)
-        {
-            ModelUIControl ctr = modelStack.Pop();
-            ctr.UnLoad();
-        }
-        modelStack.Push(mc);
+        T t = new T();
+        t.Load();
+        modelStack.Push(t);
+        return t;
     }
 
     public ModelUIControl Peek()
@@ -31,7 +29,8 @@ public class UIControlStackManager : Singleton<UIControlStackManager>
             return;
         if (ctr == null)
         {
-            modelStack.Pop();
+            ModelUIControl p = modelStack.Pop();
+            p.UnLoad();
         }
         else
         {
@@ -39,10 +38,19 @@ public class UIControlStackManager : Singleton<UIControlStackManager>
             {
                 while(modelStack.Peek() != ctr)
                 {
-                    modelStack.Pop();
+                    ModelUIControl p = modelStack.Pop();
+                    p.UnLoad();
                 }
             }
         }
+    }
+
+    public void ShowTopCtr()
+    {
+        if (modelStack.Count == 0)
+            return;
+        ModelUIControl c = modelStack.Pop();
+        c.Show();
     }
 
 }

@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class LoadingControl : ModelUIControl
 {
-    public override BaseModel AddModelData()
+    public override Type AddModelDataType()
     {
-        return LoadingModel.I;
+        return typeof(LoadingModel);
     }
 
     public override List<string> AddViewList()
