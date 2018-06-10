@@ -16,4 +16,10 @@ public class MainUIControl : ModelUIControl
         pahts.Add("Prefab/UI/MainView");
         return pahts;
     }
+
+    public void AddScore(int addScore)
+    {
+        MainUIModel main = GetModel<MainUIModel>();
+        main.Score += addScore;
+    }
 }

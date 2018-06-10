@@ -292,6 +292,21 @@
     <Reference Include="UnityEditor.iOS.Extensions.Common">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\Script\DOTween\DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenEditor">
+      <HintPath>Assets\Script\DOTween\Editor\DOTweenEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween50">
+      <HintPath>Assets\Script\DOTween\DOTween50.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween43">
+      <HintPath>Assets\Script\DOTween\DOTween43.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween46">
+      <HintPath>Assets\Script\DOTween\DOTween46.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\FrameWork\Manager\TimeClockManager.cs" />
@@ -315,6 +330,7 @@
     <Compile Include="Assets\Script\Main\Box\CubeBox.cs" />
     <Compile Include="Assets\Script\Main\Box\RoadBox.cs" />
     <Compile Include="Assets\Script\Main\Box\Spawner.cs" />
+    <Compile Include="Assets\Script\Main\MainRoot.cs" />
     <Compile Include="Assets\Script\Main\Observer.cs" />
     <Compile Include="Assets\Script\Main\RoadObserver.cs" />
     <Compile Include="Assets\Script\Main\RollTarget.cs" />
@@ -327,6 +343,14 @@
     <Compile Include="Assets\Script\UI\MainUI\MainUIControl.cs" />
     <Compile Include="Assets\Script\UI\MainUI\MainUIModel.cs" />
     <Compile Include="Assets\Script\UI\MainUI\View\MainUIView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Script\DOTween\DOTween.XML" />
+    <None Include="Assets\Script\DOTween\DOTween43.xml" />
+    <None Include="Assets\Script\DOTween\DOTween46.xml" />
+    <None Include="Assets\Script\DOTween\DOTween50.xml" />
+    <None Include="Assets\Script\DOTween\Editor\DOTweenEditor.XML" />
+    <None Include="Assets\Script\DOTween\readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

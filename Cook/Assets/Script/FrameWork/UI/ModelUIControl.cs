@@ -6,8 +6,8 @@ using UnityEngine;
 public abstract class ModelUIControl
 {
     List<UIView> ViewList = new List<UIView>();
-    BaseModel model;
-    ModelManager modelManager;
+    protected BaseModel model;
+    protected ModelManager modelManager;
     public GameObject viewControl;
 
     public abstract List<string> AddViewList();
@@ -70,9 +70,9 @@ public abstract class ModelUIControl
         Show();
     }
 
-    protected BaseModel GetModel()
+    protected T GetModel<T>() where T:BaseModel
     {
-        return model;
+        return model as T;
     }
 
     public void Hide()

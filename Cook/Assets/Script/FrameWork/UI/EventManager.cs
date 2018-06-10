@@ -8,7 +8,7 @@ public class EventManager : SingletonData<EventManager>
 
     public void AddEvent(string str,CallBack callBack)
     {
-        if (dic.ContainsKey(str))
+        if (!dic.ContainsKey(str))
         {
             dic.Add(str, callBack);
         }
@@ -24,9 +24,10 @@ public class EventManager : SingletonData<EventManager>
 
     public void Dispatch(string str, MessageData data)
     {
-        foreach(KeyValuePair<string,CallBack> pair in dic)
+        CallBack back = dic[str];
+        if(back != null)
         {
-            pair.Value(data);
+            back(data);
         }
     }
 }
