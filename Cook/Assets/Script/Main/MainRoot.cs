@@ -7,6 +7,8 @@ public class MainRoot : MonoBehaviour
 {
     public GameObject LeftObj;
     public GameObject RightObj;
+    bool isTurnLeft;
+    bool isTurnRight;
 
     void Awake()
     {
@@ -16,37 +18,58 @@ public class MainRoot : MonoBehaviour
 
     public void OnLeftBar(MessageData data)
     {
-        RotateTarget(LeftObj);
+        RotateTarget(LeftObj,BarE.LEFT);
     }
 
     public void OnRightBar(MessageData data)
     {
-        RotateTarget(RightObj);
+        RotateTarget(RightObj,BarE.RIGHT);
     }
 
-    [ContextMenu("Left")]
-    public void TestLeft()
+    public void RotateTarget(GameObject target, BarE e)
     {
-        RotateTarget(LeftObj);
-    }
-
-    [ContextMenu("Right")]
-    public void TestRight()
-    {
-        RotateTarget(RightObj);
-    }
-
-    public void RotateTarget(GameObject target)
-    {
-        //target.transform.Rotate(new Vector3(0, 0, 90));
+        if( e == BarE.LEFT)
+        {
+            if (isTurnLeft)
+                return;
+            isTurnLeft = true; 
+        }
+        else if(e == BarE.RIGHT)
+        {
+            if (isTurnRight)
+                return;
+            isTurnRight = true;
+        }
         Transform trans = target.transform;
-        Tween tween = trans.DORotate(new Vector3(0, 0, 90), 0.3f, RotateMode.LocalAxisAdd);
-        tween.onComplete = () => tween = trans.DORotate(new Vector3(0, 0, -90), 0.3f, RotateMode.LocalAxisAdd);
+        Tween tween = trans.DORotate(new Vector3(0, 0, 90), 0.2f, RotateMode.LocalAxisAdd);
+        tween.onComplete = () =>
+        {
+            Tween t = trans.DORotate(new Vector3(0, 0, -90), 0.2f, RotateMode.LocalAxisAdd);
+           t.onComplete = () => 
+           {
+               if( e == BarE.LEFT)
+               {
+                   isTurnLeft = false;
+               }
+               else if(e == BarE.RIGHT)
+               {
+                   isTurnRight = false;
+               }
+           };
+        };
     }
+
+
+
     public void OnDestory()
     {
         EventManager.I.RemoveEvent(MainUIModel.Main_LeftOn);
         EventManager.I.RemoveEvent(MainUIModel.Main_RightOn);
     }
 
+}
+public enum BarE
+{
+    LEFT,
+    RIGHT
 }
