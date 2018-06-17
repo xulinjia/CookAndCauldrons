@@ -28,6 +28,11 @@ public abstract class ModelUIControl
         view.gameObject.transform.localPosition = Vector3.zero;
         view.gameObject.transform.localScale = Vector3.one;
         view.gameObject.transform.localRotation = Quaternion.identity;
+        RectTransform trans = view.gameObject.GetComponent<RectTransform>();
+        trans.anchorMin = Vector2.zero;
+        trans.anchorMax = Vector3.one;
+        trans.offsetMax = new Vector2(0, 0);
+        trans.offsetMin = Vector2.zero;
         ViewList.Add(view);
     }
 
@@ -52,16 +57,17 @@ public abstract class ModelUIControl
         if (viewControl == null)
         {
             viewControl = new GameObject();
-            RectTransform trans = viewControl.AddComponent<RectTransform>();
-            trans.anchorMin = Vector2.zero;
-            trans.anchorMax = Vector3.one;
-            trans.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, Screen.height);
-            trans.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, Screen.width);
+            viewControl.AddComponent<RectTransform>();
         }
         viewControl.transform.parent = CanvasRoot.I.gameObject.transform;
         viewControl.transform.localPosition = Vector3.zero;
         viewControl.transform.localScale = Vector3.one;
         viewControl.transform.localRotation = Quaternion.identity;
+        RectTransform trans = viewControl.GetComponent<RectTransform>();
+        trans.anchorMin = Vector2.zero;
+        trans.anchorMax = Vector3.one;
+        trans.offsetMax = Vector2.zero;
+        trans.offsetMin = Vector2.zero;
         viewControl.name = this.GetType().Name;
         foreach (string str in lists)
         {
